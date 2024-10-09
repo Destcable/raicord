@@ -1,9 +1,8 @@
-import { useState } from 'react'
+// import { AuthPage } from "./pages/AuthPage/AuthPage";
+import { RegisterPage } from "./pages/RegisterPage/RegisterPage";
 
-function App() {
-  return (
-    <h1>Raicord</h1>
-  )
+export default function App() {
+    return (
+        <RegisterPage />
+    );
 }
-
-export default App
