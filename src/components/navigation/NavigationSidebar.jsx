@@ -1,4 +1,5 @@
 import { NavigationAction } from "./NavigationAction"
+import { NavigationHome } from "./NavigationHome"
 import { NavigationItem } from "./NavigationItem"
 
 const servers = [
@@ -22,7 +23,7 @@ const servers = [
 export const NavigationSidebar = () => {
     return (
         <div className="space-y-4 flex flex-col items-center h-full text-primary text-white w-full bg-[#1E1F22] py-3">
-            <NavigationAction />
+            <NavigationHome />
             <div className="h-[2px] bg-zinc-700 rounded-md w-10 mx-auto" />
             <div className="flex-1 w-full overflow-auto h-[200px]">
                 {servers.map((server) => (
@@ -35,6 +36,7 @@ export const NavigationSidebar = () => {
                     </div>
                 ))}
             </div>
+            <NavigationAction />
         </div>
     )
 }
