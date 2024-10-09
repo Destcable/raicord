@@ -1,7 +1,12 @@
 import { Container, Typography, TextField, Button, Link, Box, Paper } from '@mui/material';
+import { useForm } from 'react-hook-form';
 
-export const AuthPage = () => (
-    <Box sx={{ minHeight: '100vh', bgcolor: '#2c2c2c' }}>
+export const AuthPage = () => {
+    const { register, handleSubmit } = useForm();
+
+    const onSubmit = (data) => console.log(data)
+
+    return <Box sx={{ minHeight: '100vh', bgcolor: '#2c2c2c' }}>
         <Container component="main" maxWidth="sm">
             <Box
                 display="flex"
@@ -17,7 +22,7 @@ export const AuthPage = () => (
                     <Typography variant="body1" align="center" color="gray" gutterBottom>
                         Мы так рады видеть вас снова!
                     </Typography>
-                    <form noValidate>
+                    <form onSubmit={handleSubmit(onSubmit)} noValidate>
                         <TextField
                             fullWidth
                             label="Адрес электронной почты или номер телефона"
@@ -40,6 +45,7 @@ export const AuthPage = () => (
                                     },
                                 }
                             }}
+                            {...register("email")}
                         />
                         <TextField
                             fullWidth
@@ -64,6 +70,7 @@ export const AuthPage = () => (
                                     },
                                 }
                             }}
+                            {...register("password")}
                         />
                         <Box textAlign="left" mb={2}>
                             <Link href="#" color="#03aafb" variant="body2" underline="none">
@@ -72,6 +79,7 @@ export const AuthPage = () => (
                         </Box>
                         <Button
                             fullWidth
+                            type="submit"
                             variant="contained"
                             sx={{
                                 backgroundColor: '#5865f2',
@@ -97,4 +105,4 @@ export const AuthPage = () => (
             </Box>
         </Container>
     </Box>
-);
+}

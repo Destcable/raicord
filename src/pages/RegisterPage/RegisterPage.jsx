@@ -46,7 +46,7 @@ export const RegisterPage = () => {
                                 }}
                             />
                         </Box>
-                        <Box mb={2}>
+                        {/* <Box mb={2}>
                             <TextField
                                 fullWidth
                                 label="Отображаемое имя"
@@ -65,7 +65,7 @@ export const RegisterPage = () => {
                                     }
                                 }}
                             />
-                        </Box>
+                        </Box> */}
                         <Box mb={2}>
                             <TextField
                                 fullWidth

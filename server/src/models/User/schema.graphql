@@ -1,0 +1,43 @@
+type User {
+    id:                 ID
+    firstName:          String!
+    lastName:           String!
+    patronymic:         String
+    email:              String!
+    password:           String!
+}
+
+type AuthPayload { 
+    token:              String
+    user:               User
+} 
+
+type VerifyPayload { 
+    status:             Boolean
+}
+
+input UserLoginInput { 
+    email:             String!
+    password:          String!
+}
+
+input UserCreateInput {
+    firstName:          String!
+    lastName:           String!
+    patronymic:         String
+    email:              String!
+}
+
+input UserVerifyInput { 
+    token:              String!
+}
+
+type Query { 
+    getAllUsers: [User]
+    verifyToken(input: UserVerifyInput!): VerifyPayload!
+}
+
+type Mutation { 
+    login(input: UserLoginInput!): AuthPayload
+    createUser(input: UserCreateInput!): User
+}
