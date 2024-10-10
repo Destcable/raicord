@@ -1,3 +1,5 @@
+import { useState } from "react"
+import { CreateServerDialog } from "../Dialogs/CreateServerDialog"
 import { NavigationAction } from "./NavigationAction"
 import { NavigationHome } from "./NavigationHome"
 import { NavigationItem } from "./NavigationItem"
@@ -21,6 +23,11 @@ const servers = [
 ]
 
 export const NavigationSidebar = () => {
+    const [isOpenCreateServerDialog, setOpenCreateServerDialog] = useState(false);
+
+    const onClickOpenCreateServerDialog = () => setOpenCreateServerDialog(true)
+    const onCloseOpenCreateServerDialog = () => setOpenCreateServerDialog(false)
+
     return (
         <div className="space-y-4 flex flex-col items-center h-full text-primary text-white w-full bg-[#1E1F22] py-3">
             <NavigationHome />
@@ -36,7 +43,8 @@ export const NavigationSidebar = () => {
                     </div>
                 ))}
             </div>
-            <NavigationAction />
+            <NavigationAction onClick={onClickOpenCreateServerDialog} />
+            <CreateServerDialog open={isOpenCreateServerDialog} onClose={onCloseOpenCreateServerDialog} />
         </div>
     )
 }

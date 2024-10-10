@@ -1,4 +1,3 @@
-import { Plus } from "lucide-react";
 import { Tooltip } from "@mui/material";
 
 export const NavigationHome = () => {
